@@ -4,20 +4,24 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import '../../App_theme.css';
 import LoginIcon from '@mui/icons-material/Login';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import logoInicial from '../../assets/img/logo_inicial.png';
+
+
 const Login = () => {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    function entrarNoApp(){
+    function fazerLogin(){
         console.log('logando');
+        navigate('/');
     }
 
-    function cadastro(){
+    function cadastrar(){
         
-        navigate('/cadastro');
+        navigate('/register');
     }
 
     return <>
@@ -73,7 +77,7 @@ const Login = () => {
                     <ButtonComponent
                         startIcon={<LoginIcon sx={{color: '#fff'}}/>}
                         fullWidth={true} 
-                        label="Entrar" onClick={entrarNoApp}/>
+                        label="Entrar" onClick={fazerLogin}/>
                 </BoxComponent> 
                 <BoxComponent
                     component="div"
@@ -82,9 +86,9 @@ const Login = () => {
                     autoComplete={"off"}
                 > 
                     <ButtonComponent
-                        startIcon={<LoginIcon sx={{color: '#fff'}}/>}
+                        startIcon={<PersonAddIcon sx={{color: '#fff'}}/>}
                         fullWidth={true} 
-                        label="Cadastrar" onClick={cadastro}/>
+                        label="Cadastrar" onClick={cadastrar}/>
                 </BoxComponent> 
             </Box>
             <StackComponent sx={{mt: 4, mb: 4}} alignItems={'center'}>
