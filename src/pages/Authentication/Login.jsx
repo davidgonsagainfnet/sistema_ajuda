@@ -6,17 +6,17 @@ import '../../App_theme.css';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import logoInicial from '../../assets/img/logo_inicial.png';
+import { login } from '../../utils/validaAutorizacao';
 
 
-const Login = () => {
+const Login = ({firebaseApp}) => {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    function fazerLogin(){
-        console.log('logando');
-        navigate('/');
+    async function fazerLogin(){
+        await login(firebaseApp, {email, password});
     }
 
     function cadastrar(){
