@@ -2,6 +2,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 const estaLogado = async (navigate) => {
     navigate('/login')
+    // navigate('/start')
 }
 
 const login = async (firebaseApp, data, navigate) => {
