@@ -37,7 +37,7 @@
   }
 }
 
-body {
+.app-container {
   background-color: #9E4CDF; /* Substitua esta cor pela cor desejada */
   /* Outros estilos aqui, se necessário */
 }

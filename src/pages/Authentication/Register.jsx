@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BoxComponent, TextFieldComponent, TypographyComponent } from "../../components";
+import { BoxComponent, StackComponent, TextFieldComponent, TypographyComponent } from "../../components";
 
 const Register = () => {
     const [nomeRazaoSocial, setNomeRazaoSocial] = useState("");
@@ -10,34 +10,41 @@ const Register = () => {
 
     return <>
         <TypographyComponent 
-            variant={'h5'}
-            sx={{
-                textAlign: 'center'
-            }}>Dados Pessoais
-            </TypographyComponent>
+                variant={'h4'}
+                sx={{
+                    textAlign: 'center',
+                    mt: 4
+                }}>Cadastro de Contratante
+                </TypographyComponent>
         
-        {/* <BoxComponent
-            component="div"
-            sx={{ 
-                width: 400,
-                backgroundColor: '#fff',
-                borderRadius: 10,
-                paddingTop: 2,
-                paddingBottom: 2,
-                alignItems: "center" 
-            }}            
-        > */}
+        <StackComponent alignItems={"center"} sx={{
+            mt: 16
+        }}>
             <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4}}
-                noValidate={true}
-                autoComplete={"on"}
-            >
+                component="div" 
+                sx={{
+                    width: 300,
+                    height: 400,
+                    backgroundColor: '#fff',
+                    borderRadius: 10,
+                    paddingTop: 2,
+                    paddingBottom: 2, 
+                    textAlign: 'center'
+                }}            
+            > 
+                <TypographyComponent 
+                    variant={'h5'}
+                    sx={{
+                        textAlign: 'center'
+                    }}>Dados Pessoais
+                </TypographyComponent>              
                 <TextFieldComponent
                     variant={"filled"}
                     style={{
                         backgroundColor: "#fff",
-                        borderRadius: 10 
+                        borderRadius: 10,
+                        margin: 16, 
+                        width: "80%" 
                     }}
                     fullWidth={true} 
                     label={"Nome/Razão Social"}
@@ -45,19 +52,14 @@ const Register = () => {
                     type={"text"}
                     onChange={(e) => setNomeRazaoSocial(e.target.value)}
                     />
-            </BoxComponent>
-
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4}}
-                noValidate={true}
-                autoComplete={"on"}
-            >
+            
                 <TextFieldComponent
                     variant={"filled"}
                     style={{
                         backgroundColor: "#fff",
-                        borderRadius: 10 
+                        borderRadius: 10,
+                        margin: 16, 
+                        width: "80%"  
                     }}
                     fullWidth={true} 
                     label={"Documento"}
@@ -65,19 +67,14 @@ const Register = () => {
                     type={"text"}
                     onChange={(e) => setDocumento(e.target.value)}
                     />
-            </BoxComponent>
-
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4}}
-                noValidate={true}
-                autoComplete={"on"}
-            >
+            
                 <TextFieldComponent
                     variant={"filled"}
                     style={{
                         backgroundColor: "#fff",
-                        borderRadius: 10 
+                        borderRadius: 10,
+                        margin: 16, 
+                        width: "80%"  
                     }}
                     fullWidth={true} 
                     label={"Email"}
@@ -85,19 +82,14 @@ const Register = () => {
                     type={"email"}
                     onChange={(e) => setEmail(e.target.value)}
                     />
-            </BoxComponent>
-
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4}}
-                noValidate={true}
-                autoComplete={"on"}
-            >
+            
                 <TextFieldComponent
                     variant={"filled"}
                     style={{
                         backgroundColor: "#fff",
-                        borderRadius: 10 
+                        borderRadius: 10,
+                        margin: 16, 
+                        width: "80%" 
                     }}
                     fullWidth={true} 
                     label={"Celular"}
@@ -106,8 +98,7 @@ const Register = () => {
                     onChange={(e) => setCelular(e.target.value)}
                     />
             </BoxComponent>
-
-        {/* </BoxComponent> */}
+        </StackComponent>
 
         
         

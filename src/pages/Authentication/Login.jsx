@@ -34,71 +34,103 @@ const Login = ({firebaseApp}) => {
                             }}>AJUDE-ME!
                 </TypographyComponent> 
             </StackComponent>
-            <StackComponent alignItems={"center"}>
-                <img src={logoInicial} width={230} height={230} alt="Logo Login"/>
+            <StackComponent 
+                alignItems={"center"}>
+                <img src={logoInicial} 
+                    width={230} 
+                    height={230} 
+                    alt="Logo Login"/>
             </StackComponent>
             <StackComponent alignItems={"center"}>
-                <TypographyComponent variant={'p'} sx={{
-                                textAlign: 'center',
-                                fontSize: '1.3rem !important'
-                            }}>Ajudando quem precisa
+                <TypographyComponent 
+                    variant={'p'} 
+                    sx={{
+                        textAlign: 'center',
+                        fontSize: '1.3rem !important'
+                    }}>Ajudando quem precisa
                 </TypographyComponent> 
             </StackComponent>
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
-            >
-                <TextFieldComponent 
-                    variant="filled" fullWidth={true} label="Email" value={email} type="email" onChange={(e) => setEmail(e.target.value)}/>
-            </BoxComponent>
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:1, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
-            >
-                <TextFieldComponent 
-                    variant="filled" fullWidth={true} label="Password" value={password} type="password" onChange={(e) => setPassword(e.target.value)}/>
-            </BoxComponent>
-            <Box
-                display="flex"
-                justifyContent="center" // Isso centralizará os elementos horizontalmente
-                mt={1}
-                mb={3}
-            >
+            <div style={{
+                backgroundColor: '#fff',
+                height: '100%',
+                width: '100%',
+                paddingTop: '10px',
+                marginTop: '5px'
+            }}>
                 <BoxComponent
                     component="div"
-                    sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                    sx={{ mt: 3, mb:3, pl: 4, pr: 4 }}
                     noValidate={true}
                     autoComplete={"off"}
-                > 
-                    <ButtonComponent
-                        startIcon={<LoginIcon sx={{color: '#fff'}}/>}
+                >
+                    <TextFieldComponent 
+                        variant="filled"
+                        style={{
+                            backgroundColor: "#fff",
+                            borderRadius: 10 
+                        }} 
                         fullWidth={true} 
-                        label="Entrar" onClick={fazerLogin}/>
-                </BoxComponent> 
+                        label="Email" 
+                        value={email} 
+                        type="email" 
+                        onChange={(e) => setEmail(e.target.value)}/>
+                </BoxComponent>
                 <BoxComponent
                     component="div"
-                    sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                    sx={{ mt: 3, mb:1, pl: 4, pr: 4 }}
                     noValidate={true}
                     autoComplete={"off"}
-                > 
-                    <ButtonComponent
-                        startIcon={<PersonAddIcon sx={{color: '#fff'}}/>}
+                >
+                    <TextFieldComponent 
+                        variant="filled"
+                        style={{
+                            backgroundColor: "#fff",
+                            borderRadius: 10 
+                        }} 
                         fullWidth={true} 
-                        label="Cadastrar" onClick={cadastrar}/>
-                </BoxComponent> 
-            </Box>
-            <StackComponent sx={{mt: 4, mb: 4}} alignItems={'center'}>
-                <Link style={{
-                    color: '#333',
-                    textDecoration: 'none',
-                    fontWeight: '200 !important',
-                    fontSize: 16
-                }} to="/forgotpassword">Esqueci minha senha</Link>
-            </StackComponent>
+                        label="Password" 
+                        value={password} 
+                        type="password" 
+                        onChange={(e) => setPassword(e.target.value)}/>
+                </BoxComponent>
+                <Box
+                    display="flex"
+                    justifyContent="center" // Isso centralizará os elementos horizontalmente
+                    mt={1}
+                    mb={3}
+                >
+                    <BoxComponent
+                        component="div"
+                        sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                        noValidate={true}
+                        autoComplete={"off"}
+                    > 
+                        <ButtonComponent
+                            startIcon={<LoginIcon sx={{color: '#fff'}}/>}
+                            fullWidth={true} 
+                            label="Entrar" onClick={fazerLogin}/>
+                    </BoxComponent> 
+                    <BoxComponent
+                        component="div"
+                        sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                        noValidate={true}
+                        autoComplete={"off"}
+                    > 
+                        <ButtonComponent
+                            startIcon={<PersonAddIcon sx={{color: '#fff'}}/>}
+                            fullWidth={true} 
+                            label="Cadastrar" onClick={cadastrar}/>
+                    </BoxComponent> 
+                </Box>
+                <StackComponent sx={{mt: 4, mb: 4}} alignItems={'center'}>
+                    <Link style={{
+                        color: '#333',
+                        textDecoration: 'none',
+                        fontWeight: '200 !important',
+                        fontSize: 16
+                    }} to="/forgotpassword">Esqueci minha senha</Link>
+                </StackComponent>
+            </div>
         </div>    
     </>
 }
