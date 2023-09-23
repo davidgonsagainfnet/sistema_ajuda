@@ -9,36 +9,95 @@ const JobList = () => {
     const navigate = useNavigate();
     const dados = [
         {
-          titulo: 'Item 1',
-          salario: 'Subtitle 1',
-          telefone: '123-456-7890',
+          titulo: 'Entregador M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
         },
         {
-          titulo: 'Item 2',
-          salario: 'Subtitle 2',
-          telefone: '987-654-3210',
+          titulo: 'Caixa M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
         },
         {
-          titulo: 'Item 3',
-          salario: 'Subtitle 3',
-          telefone: '123-456-7890',
+          titulo: 'Vendedor B2B M/F',
+          salario: '1 Salário mínimo',
+          telefone: '(11) 99999-9999',
         },
         {
-          titulo: 'Item 4',
-          salario: 'Subtitle 4',
-          telefone: '987-654-3210',
+          titulo: 'Segurança M/F',
+          salario: '5 Salários mínimos',
+          telefone: '(11) 99999-9999',
         },
         {
-          titulo: 'Item 5',
-          salario: 'Subtitle 5',
-          telefone: '123-456-7890',
+          titulo: 'Gari M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
         },
         {
-          titulo: 'Item 6',
-          salario: 'Subtitle 6',
-          telefone: '987-654-3210',
+          titulo: 'Cozinheiro M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
         },
-        // Add more objects as needed
+        {
+          titulo: 'Entregador M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Caixa M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Vendedor B2B M/F',
+          salario: '1 Salário mínimo',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Segurança M/F',
+          salario: '5 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Gari M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Cozinheiro M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Entregador M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Caixa M/F',
+          salario: '2 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Vendedor B2B M/F',
+          salario: '1 Salário mínimo',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Segurança M/F',
+          salario: '5 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Gari M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
+        {
+          titulo: 'Cozinheiro M/F',
+          salario: '3 Salários mínimos',
+          telefone: '(11) 99999-9999',
+        },
       ];
 
     useEffect( () => {
@@ -55,7 +114,6 @@ const JobList = () => {
                         fontWeight: 'bold',
                         fontSize: 30,
                         margin: '30px 0px 10px 0px'
-                        // width: '30%',
                     }}>
                     Vagas disponíveis
                 </TypographyComponent> 
@@ -88,8 +146,8 @@ const JobList = () => {
                         fontWeight: 'bold',
                         fontSize: 27,
                         color: 'white',
-                        pt: 2
-                        // width: '30%',
+                        pt: 2,
+                        textShadow: '0px 2px 4px rgba(0, 0, 0, 0.5)'
                     }}>
                     {item.titulo}
                 </TypographyComponent> 
@@ -101,7 +159,8 @@ const JobList = () => {
                         fontWeight: 'bold',
                         fontSize: 20,
                         color: 'white',
-                        mt: 1.5
+                        mt: 1.5,
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
                     }}>
                     {item.salario}
                 </TypographyComponent> 
@@ -113,7 +172,8 @@ const JobList = () => {
                         fontWeight: 'bold',
                         fontSize: 20,
                         color: 'white',
-                        mt: 1.5
+                        mt: 1.5,
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
                     }}>
                     {item.telefone}
                 </TypographyComponent> 

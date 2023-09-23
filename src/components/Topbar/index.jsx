@@ -12,12 +12,16 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
             display: 'flex',
             alignItems: 'center'
         }}>
+        <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'row'
+                }}>
             {
                 hasArrowBack ? 
                 <>
-                <div style={{
-                    width: '50%'
-                }}>
+                
 <img src={arrowBackImage} style={{
                     width: '25px', 
                     height: '25px',
@@ -29,7 +33,7 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
                     }}
                         alt="Voltar"
                     />
-                </div>
+                {/* </div> */}
                 
                     </>
                  : null
@@ -38,28 +42,35 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
             {
                 hasProfile?
                 <>
-                <div style={{
-                    width: '50%',
+                {/* <div style={{ */}
+                    {/* width: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'row-reverse'
-                }}>
-                 <AvatarComponent
-                sx={{
-                    border: '1px solid white',
-                    marginRight: '10px'
-                }}
-                 profileUrl={profileUrl}/>
+                }}> */}
+                <div style= {{
+                        marginLeft: 'auto',
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'row'
+                    }}>
                  <TypographyComponent style={{
                     margin: '10px',
                     fontWeight: 'bold',
                  }}>
                     {profileName}
                  </TypographyComponent>
+                 <AvatarComponent
+                sx={{
+                    border: '1px solid white',
+                    marginRight: '10px'
+                }}
+                 profileUrl={profileUrl}/>
                  </div>
                  </>
                  : null
             }
+            </div>
         
             
         </BoxComponent>
