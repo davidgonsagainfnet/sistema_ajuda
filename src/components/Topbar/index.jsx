@@ -33,8 +33,6 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
                     }}
                         alt="Voltar"
                     />
-                {/* </div> */}
-                
                     </>
                  : null
             }
@@ -42,12 +40,6 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
             {
                 hasProfile?
                 <>
-                {/* <div style={{ */}
-                    {/* width: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'row-reverse'
-                }}> */}
                 <div style= {{
                         marginLeft: 'auto',
                         display: 'flex',

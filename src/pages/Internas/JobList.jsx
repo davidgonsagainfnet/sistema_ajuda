@@ -113,7 +113,7 @@ const JobList = () => {
                         textAlign: 'center',
                         fontWeight: 'bold',
                         fontSize: 30,
-                        margin: '30px 0px 10px 0px'
+                        marginTop: '30px'
                     }}>
                     Vagas disponíveis
                 </TypographyComponent> 
@@ -122,10 +122,9 @@ const JobList = () => {
           <BoxComponent
                     component="div"
                     sx={{ 
-                        // pr: 2,
                         backgroundColor: '#B398FF',
                         borderRadius: '10px 5px 5px 10px',
-                        margin: '0px 12px 0px 12px'
+                        margin: '10px 12px 20px 12px'
                          }}
                     noValidate={true}
                     autoComplete={"off"}
