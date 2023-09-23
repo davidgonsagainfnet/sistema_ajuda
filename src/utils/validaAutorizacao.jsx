@@ -1,7 +1,8 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 const estaLogado = async (navigate) => {
-    navigate('/login')
+    // navigate('/login')
+    navigate('/joblist')
     // navigate('/start')
 }
 
