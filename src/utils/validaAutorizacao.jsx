@@ -1,4 +1,5 @@
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
+import { DataModel } from '../data/datamodel';
 
 const estaLogado = async (navigate) => {
     // navigate('/login')
@@ -56,6 +57,13 @@ const registrarUsuario = async (firebase, data, navigate) => {
 
         confirmAccount(registrado.user)
 
+        const email           = data.email;
+        const nomeRazaoSocial = data.nomeRazaoSocial;
+        const celular         = data.celular;
+        const documento       = data.documento;
+
+        const {uid} = registrado.user;
+        await sendDataBase(firebase,{email, nomeRazaoSocial, celular, documento, uid})
         alert('Usuario criaco com sucesso, verifique sua conta de email.')
         navigate('/login')
     }catch(e){
@@ -69,6 +77,11 @@ const registrarUsuario = async (firebase, data, navigate) => {
             alert(e.toString())
         }
     }    
+}
+
+const sendDataBase = (firebase, usuario) => {
+    const dataModel = new DataModel('user', firebase);
+    dataModel.create(usuario);
 }
 
 export {estaLogado,

@@ -56,7 +56,7 @@ const Register = ({firebase}) => {
             return
         }
 
-        await registrarUsuario(firebase,{email, password}, navigate)
+        await registrarUsuario(firebase,{email, password, nomeRazaoSocial, celular, documento}, navigate)
     }
 
 
