@@ -6,7 +6,7 @@ import '../../App_theme.css';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import logoInicial from '../../assets/img/logo_inicial.png';
-import { login } from '../../utils/validaAutorizacao';
+import { login, restauraPassword } from '../../utils/validaAutorizacao';
 
 
 const Login = ({firebaseApp}) => {
@@ -15,13 +15,33 @@ const Login = ({firebaseApp}) => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    function isValidEmail(email) {
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        return emailRegex.test(email);
+    }
+
     async function fazerLogin(){
-        await login(firebaseApp, {email, password});
+        if(!isValidEmail(email)){
+            alert('Informe um email valido')
+            return
+        } else if(password.length == 0){
+            alert('Informe sua senha')
+            return
+        }
+        await login(firebaseApp, {email, password}, navigate);
+    }
+
+    async function recuperarSenha(){
+        if(!isValidEmail(email)){
+            alert('Informe um email valido, para recuperar sua senha')
+            return
+        }
+        await restauraPassword(firebaseApp, email)
     }
 
     function cadastrar(){
         
-        navigate('/register');
+        navigate('/start');
     }
 
     return <>
@@ -128,7 +148,7 @@ const Login = ({firebaseApp}) => {
                         textDecoration: 'none',
                         fontWeight: '200 !important',
                         fontSize: 16
-                    }} to="/forgotpassword">Esqueci minha senha</Link>
+                    }} onClick={recuperarSenha}>Esqueci minha senha</Link>
                 </StackComponent>
             </div>
         </div>    

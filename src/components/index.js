@@ -6,3 +6,4 @@ export { default as TextFieldComponent } from './TextField';
 export { default as ButtonComponent } from './Button';
 export { default as TopbarComponent } from './Topbar';
 export { default as AvatarComponent } from './Avatar';
+export { default as Topbar } from './Topbar';

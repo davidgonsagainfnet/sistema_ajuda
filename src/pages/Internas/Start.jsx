@@ -8,10 +8,14 @@ import Topbar from "../../components/Topbar";
 const Start = () => {
     const navigate = useNavigate();
 
+    const contratar = () => {
+        navigate('/register')
+    }
+
     return <>
     
          <StackComponent alignItems={"center"}>
-         <Topbar hasArrowBack={true} hasProfile={true} profileName={"Ayrton Senna"}/>
+         <Topbar hasArrowBack={true} hasProfile={false} profileName={"Ayrton Senna"}/>
                 <TypographyComponent 
                     variant={'h1'} 
                     sx={{
@@ -51,6 +55,7 @@ const Start = () => {
                             },
                             }}
                             fullWidth={true} 
+                            onClick={contratar}
                             label="QUERO CONTRATAR"/>
 
                             <ButtonComponent

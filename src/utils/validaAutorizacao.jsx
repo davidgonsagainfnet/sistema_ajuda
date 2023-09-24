@@ -1,10 +1,12 @@
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
 
 const estaLogado = async (navigate) => {
     // navigate('/login')
     navigate('/joblist')
     // navigate('/start')
 }
+
+
 
 const login = async (firebaseApp, data, navigate) => {
     try{
@@ -30,5 +32,20 @@ const login = async (firebaseApp, data, navigate) => {
     }
 }
 
+const restauraPassword = async (firebase, email) => {
+    try{
+        const config = getAuth(firebase)
+        await sendPasswordResetEmail(config, email)
+        alert('Link de recuperação enviado para o email ' + email)
+    } catch(e){
+        if(e.toString().indexOf('auth/invalid-email') > -1){
+            alert('Dados de usuário inválidos.')
+        }else{
+            alert(e.toString())
+        }
+    }
+}
+
 export {estaLogado,
-        login}
+        login,
+        restauraPassword}
