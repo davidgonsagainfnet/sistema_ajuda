@@ -2,7 +2,6 @@ import {StackComponent, TypographyComponent, BoxComponent, TextFieldComponent, B
 import Box from '@mui/material/Box';
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import '../../App_theme.css';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import logoInicial from '../../assets/img/logo_inicial.png';

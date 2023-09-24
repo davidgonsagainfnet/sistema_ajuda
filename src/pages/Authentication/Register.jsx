@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { BoxComponent, StackComponent, TextFieldComponent, TypographyComponent, Topbar, ButtonComponent } from "../../components";
+import { registrarUsuario } from "../../utils/validaAutorizacao"
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = ({firebase}) => {
     const [nomeRazaoSocial, setNomeRazaoSocial] = useState("");
     const [documento, setDocumento] = useState("");
     const [email, setEmail] = useState("");
@@ -10,6 +12,7 @@ const Register = () => {
     const [isVisibleAcesso, setIsVisibleAcesso] = useState(false);
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const navigate = useNavigate();
 
     function isValidEmail(email) {
         const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
@@ -32,7 +35,7 @@ const Register = () => {
         setIsVisibleAcesso(true)
     }
 
-    const cadastrar = () => {
+    const cadastrar = async () => {
         if(!isValidEmail(email)){
             alert('informe um email valido')
             return
@@ -53,7 +56,7 @@ const Register = () => {
             return
         }
 
-        alert('Cadastrado Com Sucesso.')
+        await registrarUsuario(firebase,{email, password}, navigate)
     }
 
 

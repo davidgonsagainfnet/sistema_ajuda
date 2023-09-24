@@ -1,4 +1,4 @@
-import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 
 const estaLogado = async (navigate) => {
     // navigate('/login')
@@ -6,6 +6,9 @@ const estaLogado = async (navigate) => {
     // navigate('/start')
 }
 
+const confirmAccount = async (user) => {
+    await sendEmailVerification(user);
+}
 
 
 const login = async (firebaseApp, data, navigate) => {
@@ -46,6 +49,29 @@ const restauraPassword = async (firebase, email) => {
     }
 }
 
+const registrarUsuario = async (firebase, data, navigate) => {
+    try {
+        const auth = getAuth(firebase)
+        const registrado = await createUserWithEmailAndPassword(auth, data.email, data.password)
+
+        confirmAccount(registrado.user)
+
+        alert('Usuario criaco com sucesso, verifique sua conta de email.')
+        navigate('/login')
+    }catch(e){
+        if(e.toString().indexOf('auth/invalid-email') > -1){
+            alert('E-mail inválido.')
+        }else if(e.toString().indexOf('auth/wrong-password') > -1){
+            alert('Password Inválido.')
+        }else if(e.toString().indexOf('auth/weak-password') > -1){
+            alert('A senha precisa ter 6 ou mais caractéres.')
+        }else{
+            alert(e.toString())
+        }
+    }    
+}
+
 export {estaLogado,
         login,
-        restauraPassword}
+        restauraPassword,
+        registrarUsuario}
