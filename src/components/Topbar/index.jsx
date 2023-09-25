@@ -29,7 +29,7 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
                     backgroundColor: '#884CDF',
                     padding: '6px',
                     borderRadius: '30px',
-                    boxShadow: '4px 4px 5px rgba(0, 0, 0, 0.5)'
+                    boxShadow: '4px 4px 5px rgba(0, 0, 0, 0.5)',
                     }}
                         alt="Voltar"
                     />

@@ -1,7 +1,6 @@
-import { Box, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from "@mui/material";
 import { estaLogado } from "../../utils/validaAutorizacao";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { BoxComponent, StackComponent, TopbarComponent, TypographyComponent } from "../../components";
 
 

@@ -232,7 +232,7 @@ const Register = ({firebase}) => {
                                 width: "80%" 
                             }}
                             fullWidth={true} 
-                            label={"Confirmas Senha"}
+                            label={"Confirmar Senha"}
                             value={passwordConfirm}
                             type="password" 
                             onChange={(e) => setPasswordConfirm(e.target.value)}

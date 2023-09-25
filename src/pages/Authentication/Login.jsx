@@ -74,7 +74,8 @@ const Login = ({firebaseApp}) => {
                 height: '100%',
                 width: '100%',
                 paddingTop: '10px',
-                marginTop: '5px'
+                marginTop: '10px',
+                borderRadius: '40px 40px 0px 0px'
             }}>
                 <BoxComponent
                     component="div"
@@ -83,10 +84,11 @@ const Login = ({firebaseApp}) => {
                     autoComplete={"off"}
                 >
                     <TextFieldComponent 
-                        variant="filled"
+                        variant="outlined"
                         style={{
                             backgroundColor: "#fff",
-                            borderRadius: 10 
+                            borderRadius: 10,
+                            border: 'none' 
                         }} 
                         fullWidth={true} 
                         label="Email" 
@@ -101,7 +103,7 @@ const Login = ({firebaseApp}) => {
                     autoComplete={"off"}
                 >
                     <TextFieldComponent 
-                        variant="filled"
+                        variant="outlined"
                         style={{
                             backgroundColor: "#fff",
                             borderRadius: 10 
