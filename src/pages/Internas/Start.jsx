@@ -41,8 +41,7 @@ const Start = () => {
 
                 <ButtonComponent
                             sx={{
-                                backgroundColor: '#8F00FF',
-                                
+                                backgroundColor: '#8F00FF',    
                                 marginTop: '50px',
                                 fontWeight: 'bold',
                                 fontSize: '20px',

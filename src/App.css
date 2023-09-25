@@ -84,3 +84,15 @@ body {
   background-color: #561c68;
   border-radius: 5px;
 }
+
+.css-2y464i-MuiInputBase-root-MuiFilledInput-root:before {
+  content: none !important;
+}
+
+.css-10botns-MuiInputBase-input-MuiFilledInput-input {
+  border-radius: 10px !important;
+}
+
+.css-2y464i-MuiInputBase-root-MuiFilledInput-root {
+  border-radius: 10px !important;
+}

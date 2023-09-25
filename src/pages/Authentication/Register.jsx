@@ -79,7 +79,7 @@ const Register = ({firebase}) => {
                         sx={{
                             width: 300,
                             height: 400,
-                            backgroundColor: '#fff',
+                            backgroundColor: '#B398FF',
                             borderRadius: 10,
                             paddingTop: 2,
                             paddingBottom: 2, 
@@ -97,6 +97,7 @@ const Register = ({firebase}) => {
                             style={{
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
+                                background: 'white !important',
                                 margin: 16, 
                                 width: "80%" 
                             }}
@@ -161,7 +162,15 @@ const Register = ({firebase}) => {
                                 autoComplete={"off"}
                 > 
                 <ButtonComponent
-                                    
+                                sx={{
+                                    backgroundColor: '#8F00FF',
+                                    borderRadius: '30px',
+                                '&:hover': {
+                                backgroundColor: '#7700FF',
+                                borderColor: '#0062cc',
+                                boxShadow: 'none',
+                                },
+                                }}    
                                 fullWidth={true} 
                                 onClick={continuar}
                                 label="Continuar" />
@@ -176,8 +185,8 @@ const Register = ({firebase}) => {
                         component="div" 
                         sx={{
                             width: 300,
-                            height: 400,
-                            backgroundColor: '#fff',
+                            height: 350,
+                            backgroundColor: '#B398FF',
                             borderRadius: 10,
                             paddingTop: 2,
                             paddingBottom: 2, 
@@ -196,7 +205,8 @@ const Register = ({firebase}) => {
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
                                 margin: 16, 
-                                width: "80%"  
+                                width: "80%",
+                                background: 'white'  
                             }}
                             fullWidth={true} 
                             label={"Email"}
@@ -246,7 +256,15 @@ const Register = ({firebase}) => {
                                 autoComplete={"off"}
                 > 
                 <ButtonComponent
-                                    
+                                sx={{
+                                    backgroundColor: '#8F00FF',
+                                    borderRadius: '30px',
+                                '&:hover': {
+                                backgroundColor: '#7700FF',
+                                borderColor: '#0062cc',
+                                boxShadow: 'none',
+                                },
+                                }}   
                                 fullWidth={true} 
                                 onClick={cadastrar}
                                 label="Cadastrar" />
