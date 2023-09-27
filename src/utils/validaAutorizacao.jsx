@@ -3,7 +3,7 @@ import { DataModel } from '../data/datamodel';
 
 const estaLogado = async (navigate) => {
     // navigate('/login')
-    navigate('/joblist')
+    //navigate('/joblist')
     // navigate('/start')
 }
 
@@ -11,14 +11,19 @@ const confirmAccount = async (user) => {
     await sendEmailVerification(user);
 }
 
+const saveLogin = (firebaseApp, data) => {
+    const dataModel = new DataModel('user', firebaseApp);
+    dataModel.createDbLocal(data, data.uid)
+}
 
 const login = async (firebaseApp, data, navigate) => {
     try{
         const auth = getAuth(firebaseApp);
         const resposta = await signInWithEmailAndPassword(auth, data.email, data.password);
-        const { emailVerified } = resposta.user;
-        
+        const { email, displayName, emailVerified, photoURL, uid, accessToken } = resposta.user;
+
         if(emailVerified){
+            saveLogin(firebaseApp, {email, displayName, photoURL, uid, accessToken});
             navigate('/');
         }else{
             alert("Você precisa confirmar seu e-mail.")
