@@ -1,3 +1,21 @@
+h1, h2, h3 {
+  font-weight: 900 !important;
+}
+
+h4, h5, h6 {
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+p, span, small, label, input, textarea {
+  font-weight: 400 !important;
+  font-size: 0.8rem !important;
+}
+
+a {
+  color: #333 !important;
+}
+
 body {
   overflow: hidden;
 }
@@ -95,4 +113,11 @@ body {
 
 .css-2y464i-MuiInputBase-root-MuiFilledInput-root {
   border-radius: 10px !important;
+}
+
+.inputRounded .MuiInputBase-root::before,
+.inputRounded .MuiInputBase-root::after,
+.inputRounded .Mui-Focused:hover:not(.Mui-disabled, .Mui-error):before,
+.inputRounded .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border-bottom: none;
 }

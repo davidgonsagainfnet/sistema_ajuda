@@ -20,11 +20,11 @@ const Start = () => {
                     variant={'h1'} 
                     sx={{
                         textAlign: 'center',
-                        padding: "0 20rem",
+                        padding: "0 30px",
+                        marginTop: '40px',
                         fontWeight: 'bold',
                         fontSize: '1.3rem !important',
                         fontSize: 23,
-                        // width: '30%',
                     }}>
                     “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”
                 </TypographyComponent> 

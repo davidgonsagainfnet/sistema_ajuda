@@ -72,18 +72,19 @@ const Register = ({firebase}) => {
                         </TypographyComponent>
             {isVisibleContratante && <>    
                 <StackComponent alignItems={"center"} sx={{
-                    mt: 16
+                    marginTop: '10%'
                 }}>
                     <BoxComponent
                         component="div" 
                         sx={{
-                            width: 300,
-                            height: 400,
+                            width: '70vw',
+                            height: '45vh',
                             backgroundColor: '#B398FF',
                             borderRadius: 10,
                             paddingTop: 2,
                             paddingBottom: 2, 
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            display: 'inline-block'
                         }}            
                     > 
                         <TypographyComponent 
@@ -98,7 +99,7 @@ const Register = ({firebase}) => {
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
                                 background: 'white !important',
-                                margin: 16, 
+                                margin: '16px 16px 5px 16px', 
                                 width: "80%" 
                             }}
                             fullWidth={true} 
@@ -113,7 +114,7 @@ const Register = ({firebase}) => {
                             style={{
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
-                                margin: 16, 
+                                margin: '16px 16px 5px 16px',  
                                 width: "80%"  
                             }}
                             fullWidth={true} 
@@ -128,7 +129,7 @@ const Register = ({firebase}) => {
                             style={{
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
-                                margin: 16, 
+                                margin: '16px 16px 5px 16px', 
                                 width: "80%"  
                             }}
                             fullWidth={true} 
@@ -143,7 +144,7 @@ const Register = ({firebase}) => {
                             style={{
                                 backgroundColor: "#fff",
                                 borderRadius: 10,
-                                margin: 16, 
+                                margin: '16px 16px 5px 16px', 
                                 width: "80%" 
                             }}
                             fullWidth={true} 
@@ -157,7 +158,7 @@ const Register = ({firebase}) => {
 
                 <BoxComponent
                                 component="div"
-                                sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
+                                sx={{ mt: 2, mb:3, pl: 4, pr: 4 }}
                                 noValidate={true}
                                 autoComplete={"off"}
                 > 

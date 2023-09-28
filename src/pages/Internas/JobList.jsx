@@ -202,15 +202,7 @@ const JobList = () => {
                 </div>
                 ))}
                 </div>
-    {/* {dados.map((item, index) => (
-      <div key={index}>
-        <h2>{item.titulo}</h2>
-        <p>{item.salario}</p>
-        <p>Phone: {item.telefone}</p>
-      </div>
-    ))} */}
     </BoxComponent>
-
           </StackComponent>
     </>
 }

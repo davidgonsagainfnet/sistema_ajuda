@@ -1,8 +1,7 @@
-import { Typography } from "@mui/material";
 import { estaLogado } from "../../utils/validaAutorizacao";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
-import { BoxComponent, ButtonComponent, StackComponent, TopbarComponent, TypographyComponent } from "../../components";
+import { ButtonComponent, StackComponent, TopbarComponent } from "../../components";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -16,9 +15,13 @@ const Home = () => {
     }
 
     return <>
-                <StackComponent>
-                <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
+            <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
 
+            <StackComponent alignItems="center"
+            sx={{
+                mt: '65%'
+            }}
+            >
                 <ButtonComponent
                             sx={{
                                 backgroundColor: '#8F00FF',    
@@ -55,7 +58,7 @@ const Home = () => {
                             //onClick={contratar}
                             label="CRIAR VAGA"/>
 
-                </StackComponent>
+            </StackComponent>
             </>
 }
 

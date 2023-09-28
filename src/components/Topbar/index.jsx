@@ -1,8 +1,16 @@
-import {AvatarComponent, BoxComponent, TopMenuComponent, TypographyComponent} from "../"
+import { AvatarComponent, BoxComponent, TopMenuComponent, TypographyComponent } from "../"
 import arrowBackImage from '../../assets/img/arrow_back.png'
-import {React, Image} from "react"
+import { React } from "react"
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
+    const navigate = useNavigate();
+
+    let goBack = () => {        
+        navigate(-1);
+      };
+
     return <>
         <BoxComponent sx={{
             height: '50px',
@@ -21,8 +29,9 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
             {
                 hasArrowBack ? 
                 <>
-                
-<img src={arrowBackImage} style={{
+
+<Link onClick={goBack}>
+    <img src={arrowBackImage} style={{
                     width: '25px', 
                     height: '25px',
                     margin: '10px',
@@ -33,6 +42,9 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
                     }}
                         alt="Voltar"
                     />
+
+</Link>              
+
                     </>
                  : null
             }
@@ -46,10 +58,12 @@ const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
                         alignItems: 'center',
                         flexDirection: 'row'
                     }}>
-                 <TypographyComponent style={{
-                    margin: '10px',
-                    fontWeight: 'bold',
-                 }}>
+                 <TypographyComponent 
+                    variant={'h6'} 
+                    style={{
+                        margin: '10px',
+                        fontWeight: 'bold',
+                    }}>
                     {profileName}
                  </TypographyComponent>
                  <AvatarComponent

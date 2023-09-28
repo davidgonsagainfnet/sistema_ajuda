@@ -128,6 +128,13 @@ const Login = ({firebaseApp}) => {
                     > 
                         <ButtonComponent
                             startIcon={<LoginIcon sx={{color: '#fff'}}/>}
+                            sx={{
+                                backgroundColor: '#8F00FF', 
+                                borderRadius: '30px',
+                                '&:hover': {
+                                backgroundColor: '#7700FF',
+                                borderColor: '#0062cc'}
+                            }}
                             fullWidth={true} 
                             label="Entrar" onClick={fazerLogin}/>
                     </BoxComponent> 
@@ -138,7 +145,15 @@ const Login = ({firebaseApp}) => {
                         autoComplete={"off"}
                     > 
                         <ButtonComponent
-                            startIcon={<PersonAddIcon sx={{color: '#fff'}}/>}
+                            startIcon={<PersonAddIcon sx={{
+                                color: '#fff'}}/>}
+                            sx={{
+                                backgroundColor: '#8F00FF', 
+                                borderRadius: '30px',
+                                '&:hover': {
+                                backgroundColor: '#7700FF',
+                                borderColor: '#0062cc'}
+                            }}
                             fullWidth={true} 
                             label="Cadastrar" onClick={cadastrar}/>
                     </BoxComponent> 
