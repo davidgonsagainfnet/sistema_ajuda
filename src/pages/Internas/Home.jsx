@@ -14,6 +14,10 @@ const Home = () => {
         navigate('/joblist')
     }
 
+    const criarVagas = () => {
+        navigate('/cadastra-vagas')
+    }
+
     return <>
             <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
 
@@ -55,7 +59,7 @@ const Home = () => {
                             },
                             }}
                             fullWidth={true} 
-                            //onClick={contratar}
+                            onClick={criarVagas}
                             label="CRIAR VAGA"/>
 
             </StackComponent>

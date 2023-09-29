@@ -12,7 +12,7 @@ const confirmAccount = async (user) => {
 }
 
 const saveLogin = (firebaseApp, data) => {
-    const dataModel = new DataModel('user', firebaseApp);
+    const dataModel = new DataModel('usuario', firebaseApp);
     dataModel.createDbLocal(data, data.uid)
 }
 
@@ -85,11 +85,18 @@ const registrarUsuario = async (firebase, data, navigate) => {
 }
 
 const sendDataBase = (firebase, usuario) => {
-    const dataModel = new DataModel('user', firebase);
+    const dataModel = new DataModel('usuario', firebase);
     dataModel.create(usuario);
+}
+
+const getUserLocal = async () => {
+    const dataModel = new DataModel('usuario');
+    const user = await dataModel.getLocal();
+    return user[0];
 }
 
 export {estaLogado,
         login,
         restauraPassword,
-        registrarUsuario}
+        registrarUsuario,
+        getUserLocal}
