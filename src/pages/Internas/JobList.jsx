@@ -1,106 +1,23 @@
 import { estaLogado } from "../../utils/validaAutorizacao";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BoxComponent, StackComponent, TopbarComponent, TypographyComponent } from "../../components";
+import { loadVagas } from "../../utils/vagas";
 
 
-const JobList = () => {
+const JobList = ({firebaseApp}) => {
     const navigate = useNavigate();
-    const dados = [
-        {
-          titulo: 'Entregador M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Caixa M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Vendedor B2B M/F',
-          salario: '1 Salário mínimo',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Segurança M/F',
-          salario: '5 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Gari M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Cozinheiro M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Entregador M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Caixa M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Vendedor B2B M/F',
-          salario: '1 Salário mínimo',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Segurança M/F',
-          salario: '5 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Gari M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Cozinheiro M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Entregador M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Caixa M/F',
-          salario: '2 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Vendedor B2B M/F',
-          salario: '1 Salário mínimo',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Segurança M/F',
-          salario: '5 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Gari M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-        {
-          titulo: 'Cozinheiro M/F',
-          salario: '3 Salários mínimos',
-          telefone: '(11) 99999-9999',
-        },
-      ];
+    const [dados, setDados] = useState([]);
+
+    const _loadVagas = async () => {
+      const vagas = await loadVagas(firebaseApp);
+      const novoArray = vagas.filter(item => !item.id);
+      setDados(novoArray);
+    }
 
     useEffect( () => {
         estaLogado(navigate)
+        _loadVagas()
     }, [])
 
     return <>
@@ -147,7 +64,7 @@ const JobList = () => {
                         pt: 2,
                         textShadow: '0px 2px 4px rgba(0, 0, 0, 0.5)'
                     }}>
-                    {item.titulo}
+                    {item.nomeVaga}
                 </TypographyComponent> 
 
                 <TypographyComponent 

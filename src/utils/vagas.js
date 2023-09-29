@@ -9,6 +9,13 @@ const saveVagas = async (firebaseApp, data) => {
     dataModel.create(data, true)
 }
 
+const loadVagas = async (firebaseApp, id = null) => {
+    const dataModel = new DataModel('vagas', firebaseApp, 'vagas', 'vagas');
+    const vagas = await dataModel.getLocal();
+    return vagas;
+}
+
 export {
-    saveVagas
+    saveVagas,
+    loadVagas
 }
