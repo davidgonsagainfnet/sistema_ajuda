@@ -4,6 +4,7 @@ import { db } from "./database";
 export class DataModel{
     constructor(model, firebaseApp, modelSufix=null, databaseName=null){
         this.model      = model;
+        this.databaseName = databaseName || model;
         this.db         = db;
         this.realtimeDb = getDatabase(firebaseApp);
     }
@@ -18,21 +19,21 @@ export class DataModel{
 
     async createDbLocal(data, id=null){
         if(id){
-            await this.getDbTable(this.model).put({
+            await this.getDbTable(this.databaseName).put({
                 id: id,
                 ...data
             });
         } else {
-            await this.getDbTable(this.model).put(data);
+            await this.getDbTable(this.databaseName).put(data);
         }
     }
 
-    getDbTable(model){
-        switch(model){
-            case 'user':
-                return this.db.usuario;
-            default:
-                return this.db.usuario;
+    getDbTable(database){
+        if(database === 'usuario'){
+            return this.db.usuario;
+        }
+        else if(database === 'vagas'){
+            return this.db.vagas;
         }
     }
 
