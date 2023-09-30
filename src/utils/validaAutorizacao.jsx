@@ -5,6 +5,7 @@ const estaLogado = async (navigate) => {
     // navigate('/login')
     //navigate('/joblist')
     // navigate('/start')
+    // navigate('/perfil')
 }
 
 const confirmAccount = async (user) => {
