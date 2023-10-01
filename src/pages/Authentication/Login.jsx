@@ -28,6 +28,8 @@ const Login = ({firebaseApp}) => {
             return
         }
         await login(firebaseApp, {email, password}, navigate);
+        
+
     }
 
     async function recuperarSenha(){

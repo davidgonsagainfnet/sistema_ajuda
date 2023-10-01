@@ -1,4 +1,4 @@
-import { getDatabase, set, ref } from "firebase/database";
+import { getDatabase, set, ref, get } from "firebase/database";
 import { db } from "./database";
 
 export class DataModel{
@@ -10,11 +10,27 @@ export class DataModel{
     }
 
     async create(data, saveLocal=false){
-        data.uid = await this.generateUid();
+        if (data.uid === undefined) {
+            data.uid = await this.generateUid();
+        }
         set(ref(this.realtimeDb,`${this.model}/` + data.uid), data);
         if(saveLocal){
             await this.createDbLocal(data);
         }
+    }
+
+    async syncLoginInicial(uid){
+        const data = await get(ref(this.realtimeDb, `${this.model}/` + uid))
+        this.createDbLocal(data.val())
+    }
+
+    async syncVagasLocal(){
+        const data = await get(ref(this.realtimeDb, `${this.model}`))
+        const keyValueArray = Object.entries(data.val());
+        keyValueArray.forEach(([key, value]) => {
+            this.createDbLocal(value)
+        });
+        // this.createDbLocal(data.val())
     }
 
     async createDbLocal(data, id=null){

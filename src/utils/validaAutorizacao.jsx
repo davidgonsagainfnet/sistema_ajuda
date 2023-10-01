@@ -1,11 +1,21 @@
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 import { DataModel } from '../data/datamodel';
 
-const estaLogado = async (navigate) => {
-    // navigate('/login')
-    //navigate('/joblist')
-    // navigate('/start')
-    // navigate('/perfil')
+const userIsLoggedIn = async (firebaseApp) => {
+    const dataModel = new DataModel('usuario', firebaseApp);
+    const user = await dataModel.getLocal();
+    if(user.length > 0){
+        return user[0]
+    }
+    return null;
+}
+
+const estaLogado = async (navigate, firebaseApp) => {
+    const isLoggedIn = await userIsLoggedIn(firebaseApp);
+
+    if(!isLoggedIn){
+        navigate('/login')
+    }
 }
 
 const confirmAccount = async (user) => {
@@ -14,7 +24,13 @@ const confirmAccount = async (user) => {
 
 const saveLogin = (firebaseApp, data) => {
     const dataModel = new DataModel('usuario', firebaseApp);
-    dataModel.createDbLocal(data, data.uid)
+    //dataModel.createDbLocal(data, data.uid)
+    dataModel.syncLoginInicial(data.uid)
+}
+
+const buscaVagasSaveLocal = (firebaseApp) => {
+    const dataModel = new DataModel('vagas', firebaseApp);
+    dataModel.syncVagasLocal()
 }
 
 const login = async (firebaseApp, data, navigate) => {
@@ -25,6 +41,8 @@ const login = async (firebaseApp, data, navigate) => {
 
         if(emailVerified){
             saveLogin(firebaseApp, {email, displayName, photoURL, uid, accessToken});
+            buscaVagasSaveLocal(firebaseApp);
+            await new Promise(resolve => setTimeout(resolve, 1000));
             navigate('/');
         }else{
             alert("Você precisa confirmar seu e-mail.")
