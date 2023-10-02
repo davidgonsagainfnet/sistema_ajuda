@@ -26,7 +26,7 @@ const Perfil = () => {
     }
 
     return <>
-       <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
+       <TopbarComponent hasArrowBack={true} hasProfile={true} />
 
         <StackComponent alignItems={"center"}>
         <TypographyComponent

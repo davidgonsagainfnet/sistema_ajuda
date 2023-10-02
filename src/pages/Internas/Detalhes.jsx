@@ -4,7 +4,7 @@ import { BoxComponent, ButtonComponent, TopbarComponent, TypographyComponent } f
 const Detalhes = () => {
 
     return <>
-        <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
+        <TopbarComponent hasArrowBack={true} hasProfile={true}/>
 
         <TypographyComponent 
             variant={'h1'} 

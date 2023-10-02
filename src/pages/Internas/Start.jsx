@@ -15,7 +15,7 @@ const Start = () => {
     return <>
     
          <StackComponent alignItems={"center"}>
-         <Topbar hasArrowBack={true} hasProfile={false} profileName={"Ayrton Senna"}/>
+         <Topbar hasArrowBack={true} hasProfile={false} />
                 <TypographyComponent 
                     variant={'h1'} 
                     sx={{

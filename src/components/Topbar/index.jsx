@@ -1,15 +1,26 @@
-import { AvatarComponent, BoxComponent, TopMenuComponent, TypographyComponent } from "../"
+import { AvatarComponent, BoxComponent, TypographyComponent } from "../"
 import arrowBackImage from '../../assets/img/arrow_back.png'
-import { React } from "react"
+import { React, useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
+import { getUserLocal } from "../../utils/validaAutorizacao";
 
 
-const Topbar = ({ hasArrowBack, hasProfile, profileName, profileUrl}) => {
+const Topbar = ({ hasArrowBack, hasProfile, profileUrl}) => {
     const navigate = useNavigate();
+    const [profileName, setprofileName] = useState("");
 
     let goBack = () => {        
         navigate(-1);
       };
+
+    useEffect( ()  => {
+        async function usuario(){
+            let user = await getUserLocal()
+            setprofileName(user.nomeRazaoSocial)
+        }
+      
+        usuario()
+    }, [])
 
     return <>
         <BoxComponent sx={{

@@ -25,7 +25,7 @@ const Detalhes = ({firebaseApp}) => {
     }
 
     return <>
-        <Topbar hasArrowBack={true} hasProfile={true} profileName={"Ayrton Senna"}/>
+        <Topbar hasArrowBack={true} hasProfile={true} />
         <TypographyComponent 
                         variant={'h4'}
                         sx={{

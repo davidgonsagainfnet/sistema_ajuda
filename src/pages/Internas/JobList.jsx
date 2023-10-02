@@ -25,7 +25,7 @@ const JobList = ({firebaseApp}) => {
 
     return <>
           <StackComponent>
-          <TopbarComponent hasArrowBack={true} hasProfile={true} profileName={"Renan de Assis (Colaborador)"}/>
+          <TopbarComponent hasArrowBack={true} hasProfile={true} />
           <TypographyComponent 
                     variant={'h1'} 
                     sx={{
