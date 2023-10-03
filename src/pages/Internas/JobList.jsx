@@ -1,5 +1,5 @@
 import { estaLogado } from "../../utils/validaAutorizacao";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { BoxComponent, StackComponent, TopbarComponent, TypographyComponent, ButtonComponent } from "../../components";
 import { loadVagas } from "../../utils/vagas";
@@ -18,10 +18,6 @@ const JobList = ({firebaseApp}) => {
         estaLogado(navigate)
         _loadVagas()
     }, [])
-
-    const detalhes = (uid) => {
-      navigate('/detalhes/'+uid);
-    }
 
     return <>
           <StackComponent>
@@ -105,20 +101,19 @@ const JobList = ({firebaseApp}) => {
                     display: 'flex',
                     flexDirection: 'column'
                 }}>
-                  <ButtonComponent
-                            sx={{
-                              backgroundColor: '#8524B2',
-                              width: '100%',
-                              height: '50px',
-                              borderRadius: '0px 0px 30px 30px',
-                              textAlign: 'center',
-                              fontWeight: 'bold',
-                              fontSize: 20,
-                              color: 'white',
-                          }}
-                            fullWidth={true} 
-                            onClick={detalhes}
-                            label="Visualizar Detalhes"/>
+                <Link to={`/detalhes/${item.uid}`}>
+                    <TypographyComponent 
+                        variant={'h1'} 
+                        sx={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: 30,
+                            marginTop: '10px',
+                            color: 'white'
+                        }}>
+                        Visualizar Detalhes
+                    </TypographyComponent> 
+                </Link>
 
                 </div>
                 </div>

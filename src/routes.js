@@ -18,7 +18,7 @@ const routes = [
     { path: '/start', element: Start, title: 'Start' },
     { path: '/perfil', element: Perfil, title: 'Perfil' },
     { path: '/joblist', element: JobList, title: 'Lista de trabalhos disponíveis' },
-    { path: '/detalhes/:id', element: Detalhes, title: 'Detalhes da vaga' },
+    { path: '/detalhes/:uid', element: Detalhes, title: 'Detalhes da vaga' },
     { path: '/cadastra-vagas', element: CadVagas, title: 'Cadastro de Vagas' },
     { path: '*', element: NotFound, title: 'Página não encontrada' },
 ]

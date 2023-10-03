@@ -1,7 +1,28 @@
 import { BoxComponent, ButtonComponent, TopbarComponent, TypographyComponent } from "../../components";
+import { useNavigate, useParams } from "react-router-dom";
+import { loadVagas } from "../../utils/vagas";
+import { estaLogado } from "../../utils/validaAutorizacao";
+import { useEffect, useState } from 'react';
 
 
-const Detalhes = () => {
+const Detalhes = ({firebaseApp}) => {
+    const params = useParams();
+    const navigate = useNavigate();
+    const [nomeVaga, setNomeVaga] = useState([]);
+    const [descricao, setDescricao] = useState([]);
+    const [beneficio, setBeneficio] = useState([]);
+
+    const buscaVaga = async () => {
+        const vaga = await loadVagas(firebaseApp, params.uid)
+        setNomeVaga(vaga[0].nomeVaga)
+        setDescricao(vaga[0].descricao)
+        setBeneficio(vaga[0].beneficio)
+    }
+
+    useEffect( () => {
+        estaLogado(navigate)
+        buscaVaga()
+    }, [])
 
     return <>
         <TopbarComponent hasArrowBack={true} hasProfile={true}/>
@@ -14,8 +35,7 @@ const Detalhes = () => {
                 fontSize: 20,
                 mt: 1.5
             }}>
-            Detalhes da vaga de Cozinheiro 
-            {/* Detalhes da vaga de ${tituloVaga}  */}
+            Detalhes da vaga de {nomeVaga}
                         
         </TypographyComponent>
 
@@ -50,9 +70,7 @@ const Detalhes = () => {
                         marginTop: '20px',
                         fontSize: 23,
                     }}>
-                    “Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”
-                    {/* ${descricaoVaga}  */}
+                    {descricao}
                 </TypographyComponent>
                 <TypographyComponent 
                     variant={'h5'} 
@@ -72,10 +90,7 @@ const Detalhes = () => {
                         fontSize: 20,
                         mt: 1
                     }}>
-                    * Vale refeição de 19,90 por dia<br/>
-                    * Auxílio transporte<br/>
-                    * Seguro de vida 
-                    {/* ${listaBeneficios}  */}                          
+                    {beneficio}                           
                 </TypographyComponent>
 
                 <BoxComponent

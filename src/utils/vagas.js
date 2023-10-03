@@ -11,7 +11,10 @@ const saveVagas = async (firebaseApp, data) => {
 
 const loadVagas = async (firebaseApp, id = null) => {
     const dataModel = new DataModel('vagas', firebaseApp, 'vagas', 'vagas');
-    const vagas = await dataModel.getLocal();
+    let vagas = await dataModel.getLocal();
+    if(id != null){
+        vagas = vagas.filter(item => item.uid === id)
+    }
     return vagas;
 }
 
