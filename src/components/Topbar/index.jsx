@@ -16,7 +16,10 @@ const Topbar = ({ hasArrowBack, hasProfile, profileUrl}) => {
     useEffect( ()  => {
         async function usuario(){
             let user = await getUserLocal()
-            setprofileName(user.nomeRazaoSocial)
+            if(user != null){
+                setprofileName(user.nomeRazaoSocial)
+            }
+            
         }
       
         usuario()
