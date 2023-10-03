@@ -1,8 +1,9 @@
 import './App.css';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Loading } from './components';
 import routes from './routes';
+import { sync } from './utils/sync';
 
 import { initializeApp } from 'firebase/app'
 
@@ -20,6 +21,12 @@ const firebaseConfig = {
 function App() {
 
   const firebaseApp = initializeApp(firebaseConfig)
+
+  useEffect(() => {
+    setInterval(() => {
+      sync(firebaseApp);
+    }, 30 * 1000)
+  }, [])
 
   return <Router>
     <Suspense fallback={<Loading/>}>

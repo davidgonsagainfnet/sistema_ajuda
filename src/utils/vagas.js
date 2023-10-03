@@ -6,6 +6,11 @@ const saveVagas = async (firebaseApp, data) => {
 
     const user = await getUserLocal();
     data.criado_por = user.uid;
+    data.synced     = true;
+    if(!window.navigator.onLine){
+        data.synced = false; 
+    } 
+
     dataModel.create(data, true)
 }
 
