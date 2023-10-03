@@ -77,12 +77,14 @@ const Topbar = ({ hasArrowBack, hasProfile, profileUrl}) => {
                     }}>
                     {profileName}
                  </TypographyComponent>
+                 <Link to="/perfil">
                  <AvatarComponent
                 sx={{
                     border: '1px solid white',
                     marginRight: '10px'
                 }}
                  profileUrl={profileUrl}/>
+                 </Link>
                  </div>
                  </>
                  : null
