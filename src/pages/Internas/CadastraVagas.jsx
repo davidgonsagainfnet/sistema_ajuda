@@ -1,7 +1,8 @@
 import { Topbar, TypographyComponent, StackComponent, BoxComponent, TextFieldComponent, ButtonComponent } from "../../components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { saveVagas } from "../../utils/vagas";
 import { useNavigate } from "react-router-dom";
+import { estaLogado } from "../../utils/validaAutorizacao";
 
 const Detalhes = ({firebaseApp}) => {
     const navigate = useNavigate();
@@ -23,6 +24,10 @@ const Detalhes = ({firebaseApp}) => {
         alert('Vaga Gerada com Sucesso.')
         navigate('/joblist');
     }
+
+    useEffect( () => {
+        estaLogado(navigate)
+    }, [])
 
     return <>
         <Topbar hasArrowBack={true} hasProfile={true} />

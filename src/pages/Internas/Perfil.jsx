@@ -1,15 +1,25 @@
 import { estaLogado } from "../../utils/validaAutorizacao";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
-import { AvatarComponent, BoxComponent, ButtonComponent, StackComponent, TopbarComponent, TypographyComponent } from "../../components";
-import { Avatar } from "@mui/material";
+import { useEffect, useState } from 'react';
+import { AvatarComponent, BoxComponent, StackComponent, TopbarComponent, TypographyComponent } from "../../components";
+import { getUserLocal } from "../../utils/validaAutorizacao";
 
 const Perfil = () => {
     const navigate = useNavigate();
+    const [nomeRazaoSocial, setNomeRazaoSocial] = useState("");
+
+    const buscaPerfil = async () => {
+        const perfil = await getUserLocal()
+        setNomeRazaoSocial(perfil.nomeRazaoSocial) 
+    }
+
+    useEffect( () => {
+        estaLogado(navigate)
+        buscaPerfil()
+    }, [])
 
 
     const dados = {
-        nome: "Renan de Assis Alves",
         subDescricao: "Usuário de StackOverflow",
         experienciaProfissional: [{
             nomeEmpresa: "New Finance 2007-2017",
@@ -35,7 +45,7 @@ const Perfil = () => {
             marginTop: '10px'
         }}
         >
-            {dados.nome}
+            {nomeRazaoSocial}
         </TypographyComponent>
         <AvatarComponent
                 sx={{
