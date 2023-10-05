@@ -35,7 +35,7 @@ const Detalhes = ({firebaseApp}) => {
                 fontSize: 20,
                 mt: 1.5
             }}>
-            Detalhes da vaga de {nomeVaga}
+            Detalhes da vaga {nomeVaga}
                         
         </TypographyComponent>
 

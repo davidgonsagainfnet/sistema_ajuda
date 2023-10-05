@@ -88,7 +88,7 @@ const registrarUsuario = async (firebase, data, navigate) => {
 
         const {uid} = registrado.user;
         await sendDataBase(firebase,{email, nomeRazaoSocial, celular, documento, uid})
-        alert('Usuario criaco com sucesso, verifique sua conta de email.')
+        alert('Usuario criado com sucesso, verifique sua conta de email.')
         navigate('/login')
     }catch(e){
         if(e.toString().indexOf('auth/invalid-email') > -1){
@@ -96,7 +96,7 @@ const registrarUsuario = async (firebase, data, navigate) => {
         }else if(e.toString().indexOf('auth/wrong-password') > -1){
             alert('Password Inválido.')
         }else if(e.toString().indexOf('auth/weak-password') > -1){
-            alert('A senha precisa ter 6 ou mais caractéres.')
+            alert('A senha precisa ter 6 ou mais caracteres.')
         }else{
             alert(e.toString())
         }
